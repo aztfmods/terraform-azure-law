@@ -5,10 +5,9 @@ locals {
 
         law_key        = law_key
         solution_key   = solution_key
-        publisher      = solution.publisher
-        solution_name  = solution.name
-        product        = solution.product
-        promotion_code = try(solution.promotion_code, "")
+        publisher      = "Microsoft"
+        solution_name  = solution
+        product        = "OMSGallery/${solution}"
         location       = law.location
         workspace_id   = azurerm_log_analytics_workspace.law[law_key].id
         workspace_name = azurerm_log_analytics_workspace.law[law_key].name

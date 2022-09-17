@@ -54,8 +54,7 @@ resource "azurerm_log_analytics_solution" "solution" {
   workspace_name        = each.value.workspace_name
 
   plan {
-    publisher      = each.value.publisher
-    product        = each.value.product
-    promotion_code = each.value.promotion_code
+    publisher = each.value.publisher
+    product   = each.value.product
   }
 }
