@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/aztfmods/module-azurerm-law/compare/v1.0.0...v1.1.0) (2022-09-17)
+
+
+### Features
+
+* simplify solutions structure ([#5](https://github.com/aztfmods/module-azurerm-law/issues/5)) ([8fb03fb](https://github.com/aztfmods/module-azurerm-law/commit/8fb03fb4c90e79907fc13cce7a97b19d826ac9ed))
+
 ## 1.0.0 (2022-09-17)
 
 
