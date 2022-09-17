@@ -23,9 +23,7 @@ module "law" {
       resourcegroup = "rg-law-weeu"
       sku           = "PerGB2018"
       retention     = 30
-      solutions = {
-        sol1 = { name = "ContainerInsights", publisher = "Microsoft", product = "OMSGallery/ContainerInsights" }
-      }
+      solutions     = ["ContainerInsights"]
     }
   }
 }
@@ -40,11 +38,7 @@ module "law" {
       resourcegroup = "rg-law-weeu"
       sku           = "PerGB2018"
       retention     = 30
-      solutions = {
-        sol1 = { name = "ContainerInsights", publisher = "Microsoft", product = "OMSGallery/ContainerInsights" }
-        sol2 = { name = "VMInsights", publisher = "Microsoft", product = "OMSGallery/VMInsights" }
-        sol3 = { name = "AzureActivity", publisher = "Microsoft", product = "OMSGallery/AzureActivity" }
-      }
+      solutions     = ["ContainerInsights", "VMInsights", "AzureActivity"]
 
     law2 = {
       location      = "eastus"
