@@ -8,10 +8,10 @@ locals {
         publisher      = "Microsoft"
         solution_name  = solution
         product        = "OMSGallery/${solution}"
-        location       = law.location
+        location       = data.azurerm_resource_group.rg[law_key].location
         workspace_id   = azurerm_log_analytics_workspace.law[law_key].id
         workspace_name = azurerm_log_analytics_workspace.law[law_key].name
-        resourcegroup  = azurerm_resource_group.rg[law_key].name
+        resourcegroup  = data.azurerm_resource_group.rg[law_key].name
       }
     ]
   ])

@@ -2,11 +2,10 @@
 # resourcegroups
 #----------------------------------------------------------------------------------------
 
-resource "azurerm_resource_group" "rg" {
+data "azurerm_resource_group" "rg" {
   for_each = var.laws
 
-  name     = each.value.resourcegroup
-  location = each.value.location
+  name = each.value.resourcegroup
 }
 
 #----------------------------------------------------------------------------------------
@@ -29,8 +28,8 @@ resource "azurerm_log_analytics_workspace" "law" {
   for_each = var.laws
 
   name                       = "law${var.env}${random_string.random.result}"
-  location                   = each.value.location
-  resource_group_name        = azurerm_resource_group.rg[each.key].name
+  resource_group_name        = data.azurerm_resource_group.rg[each.key].name
+  location                   = data.azurerm_resource_group.rg[each.key].location
   daily_quota_gb             = try(each.value.daily_quota_gb, null)
   internet_ingestion_enabled = try(each.value.internet_ingestion_enabled, null)
   internet_query_enabled     = try(each.value.internet_query_enabled, null)

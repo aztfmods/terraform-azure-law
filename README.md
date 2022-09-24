@@ -15,12 +15,20 @@ The below examples shows the usage when consuming the module:
 ## Usage: single log analytics workspace single solution
 
 ```hcl
+module "rgs" {
+  source = "github.com/aztfmods/module-azurerm-rg"
+  groups = {
+    laws = { name = "rg-laws-weu", location = "westeurope" }
+  }
+}
+
 module "law" {
   source = "../../"
+  depends_on = [module.rgs]
   laws = {
     law1 = {
-      location      = "westeurope"
-      resourcegroup = "rg-law-weeu"
+      location      = module.rgs.groups.laws.location
+      resourcegroup = module.rgs.groups.laws.name
       sku           = "PerGB2018"
       retention     = 30
       solutions     = ["ContainerInsights"]
@@ -32,17 +40,27 @@ module "law" {
 ## Usage: multiple log analytics workspace multiple solutions
 
 ```hcl
+module "rgs" {
+  source = "github.com/aztfmods/module-azurerm-rg"
+  groups = {
+    laws = { name = "rg-laws-weu", location = "westeurope" }
+  }
+}
+
+module "law" {
+  source = "../../"
+  depends_on = [module.rgs]
   laws = {
     law1 = {
-      location      = "westeurope"
-      resourcegroup = "rg-law-weeu"
+      location      = module.rgs.groups.laws.location
+      resourcegroup = module.rgs.groups.laws.name
       sku           = "PerGB2018"
       retention     = 30
       solutions     = ["ContainerInsights", "VMInsights", "AzureActivity"]
 
     law2 = {
-      location      = "eastus"
-      resourcegroup = "rg-law-eus"
+      location      = module.rgs.groups.laws.location
+      resourcegroup = module.rgs.groups.laws.name
       sku           = "PerGB2018"
       retention     = 30
     }
@@ -63,7 +81,6 @@ module "law" {
 | Name | Description | Type | Required |
 | :-- | :-- | :-- | :-- |
 | `laws` | describes log analytics related configuration | object | yes |
-| `resourcegroup` | describes resourcegroup name | string | yes |
 
 ## Authors
 
