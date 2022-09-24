@@ -10,7 +10,7 @@ module "rgs" {
 }
 
 module "law" {
-  source = "../../"
+  source     = "../../"
   depends_on = [module.rgs]
   laws = {
     law1 = {
