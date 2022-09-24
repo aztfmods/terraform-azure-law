@@ -63,6 +63,7 @@ module "law" {
       resourcegroup = module.rgs.groups.laws.name
       sku           = "PerGB2018"
       retention     = 30
+      solutions     = ["ContainerInsights"]
     }
   }
 ```
