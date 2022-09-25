@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/aztfmods/module-azurerm-law/compare/v1.1.0...v1.2.0) (2022-09-24)
+
+
+### Features
+
+* add missing outputs ([#7](https://github.com/aztfmods/module-azurerm-law/issues/7)) ([9128824](https://github.com/aztfmods/module-azurerm-law/commit/9128824414e60e6f67d9a447253828b85119920e))
+* add resourcegroup module ([#9](https://github.com/aztfmods/module-azurerm-law/issues/9)) ([61257e0](https://github.com/aztfmods/module-azurerm-law/commit/61257e0ad94237b1d4d539bd7c8959c30c1528eb))
+
 ## [1.1.0](https://github.com/aztfmods/module-azurerm-law/compare/v1.0.0...v1.1.0) (2022-09-17)
 
 
