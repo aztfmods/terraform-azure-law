@@ -15,56 +15,56 @@ The below examples shows the usage when consuming the module:
 ## Usage: single log analytics workspace single solution
 
 ```hcl
-module "rgs" {
-  source = "github.com/aztfmods/module-azurerm-rg"
-  groups = {
-    laws = { name = "rg-laws-weu", location = "westeurope" }
-  }
-}
-
 module "law" {
   source = "../../"
-  depends_on = [module.rgs]
+
+  naming = {
+    company = local.naming.company
+    env     = local.naming.env
+    region  = local.naming.region
+  }
+
   laws = {
-    law1 = {
-      location      = module.rgs.groups.laws.location
-      resourcegroup = module.rgs.groups.laws.name
+    demo = {
+      location      = module.global.groups.laws.location
+      resourcegroup = module.global.groups.laws.name
       sku           = "PerGB2018"
       retention     = 30
       solutions     = ["ContainerInsights"]
     }
   }
+  depends_on = [module.global]
 }
 ```
 
 ## Usage: multiple log analytics workspace multiple solutions
 
 ```hcl
-module "rgs" {
-  source = "github.com/aztfmods/module-azurerm-rg"
-  groups = {
-    laws = { name = "rg-laws-weu", location = "westeurope" }
-  }
-}
-
 module "law" {
   source = "../../"
-  depends_on = [module.rgs]
+
+  naming = {
+    company = local.naming.company
+    env     = local.naming.env
+    region  = local.naming.region
+  }
+
   laws = {
     law1 = {
-      location      = module.rgs.groups.laws.location
-      resourcegroup = module.rgs.groups.laws.name
+      location      = module.global.groups.laws.location
+      resourcegroup = module.global.groups.laws.name
       sku           = "PerGB2018"
       retention     = 30
       solutions     = ["ContainerInsights", "VMInsights", "AzureActivity"]
 
     law2 = {
-      location      = module.rgs.groups.laws.location
-      resourcegroup = module.rgs.groups.laws.name
+      location      = module.global.groups.laws.location
+      resourcegroup = module.global.groups.laws.name
       sku           = "PerGB2018"
       retention     = 30
       solutions     = ["ContainerInsights"]
     }
+    depends_on = [module.global]
   }
 ```
 

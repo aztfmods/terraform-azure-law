@@ -13,8 +13,8 @@ data "azurerm_resource_group" "rg" {
 #----------------------------------------------------------------------------------------
 
 resource "random_string" "random" {
-  length    = 5
-  min_lower = 5
+  length    = 3
+  min_lower = 3
   special   = false
   numeric   = false
   upper     = false
@@ -27,7 +27,7 @@ resource "random_string" "random" {
 resource "azurerm_log_analytics_workspace" "law" {
   for_each = var.laws
 
-  name                       = "law${var.env}${random_string.random.result}"
+  name                       = "log-${var.naming.company}-${each.key}-${var.naming.env}-${var.naming.region}-${random_string.random.result}"
   resource_group_name        = data.azurerm_resource_group.rg[each.key].name
   location                   = data.azurerm_resource_group.rg[each.key].location
   daily_quota_gb             = try(each.value.daily_quota_gb, null)
