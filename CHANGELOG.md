@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/aztfmods/module-azurerm-law/compare/v1.2.0...v1.3.0) (2022-09-25)
+
+
+### Features
+
+* add consistent naming ([#10](https://github.com/aztfmods/module-azurerm-law/issues/10)) ([3ff37c8](https://github.com/aztfmods/module-azurerm-law/commit/3ff37c83d4c2e272055ac859a7106fd83ca6c3b5))
+
 ## [1.2.0](https://github.com/aztfmods/module-azurerm-law/compare/v1.1.0...v1.2.0) (2022-09-24)
 
 
