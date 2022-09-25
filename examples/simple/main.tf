@@ -21,7 +21,7 @@ module "global" {
 }
 
 module "law" {
-  source     = "../../"
+  source = "../../"
 
   naming = {
     company = local.naming.company
