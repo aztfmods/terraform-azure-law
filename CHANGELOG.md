@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0](https://github.com/aztfmods/module-azurerm-law/compare/v1.3.0...v1.4.0) (2022-10-15)
+
+
+### Features
+
+* add more optional arguments ([#14](https://github.com/aztfmods/module-azurerm-law/issues/14)) ([284316c](https://github.com/aztfmods/module-azurerm-law/commit/284316c9144399bdcaa90c329d621758b7862edf))
+* add reusable workflows ([#12](https://github.com/aztfmods/module-azurerm-law/issues/12)) ([2fd0bff](https://github.com/aztfmods/module-azurerm-law/commit/2fd0bffb95c2195f08b629be93e5ca5f917c99fa))
+
 ## [1.3.0](https://github.com/aztfmods/module-azurerm-law/compare/v1.2.0...v1.3.0) (2022-09-25)
 
 
