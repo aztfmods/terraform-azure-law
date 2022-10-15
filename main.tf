@@ -27,14 +27,17 @@ resource "random_string" "random" {
 resource "azurerm_log_analytics_workspace" "law" {
   for_each = var.laws
 
-  name                       = "log-${var.naming.company}-${each.key}-${var.naming.env}-${var.naming.region}-${random_string.random.result}"
-  resource_group_name        = data.azurerm_resource_group.rg[each.key].name
-  location                   = data.azurerm_resource_group.rg[each.key].location
-  daily_quota_gb             = try(each.value.daily_quota_gb, null)
-  internet_ingestion_enabled = try(each.value.internet_ingestion_enabled, null)
-  internet_query_enabled     = try(each.value.internet_query_enabled, null)
-  sku                        = each.value.sku
-  retention_in_days          = each.value.retention
+  name                = "log-${var.naming.company}-${each.key}-${var.naming.env}-${var.naming.region}-${random_string.random.result}"
+  resource_group_name = data.azurerm_resource_group.rg[each.key].name
+  location            = data.azurerm_resource_group.rg[each.key].location
+  sku                 = each.value.sku
+
+  daily_quota_gb                     = try(each.value.daily_quota_gb, null)
+  internet_ingestion_enabled         = try(each.value.internet_ingestion_enabled, null)
+  internet_query_enabled             = try(each.value.internet_query_enabled, null)
+  retention_in_days                  = try(each.value.retention, 30)
+  reservation_capacity_in_gb_per_day = try(each.value.reservation_capacity_in_gb_per_day, null)
+
 }
 
 #----------------------------------------------------------------------------------------

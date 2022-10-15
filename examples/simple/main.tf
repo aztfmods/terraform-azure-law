@@ -34,7 +34,7 @@ module "law" {
       location      = module.global.groups.laws.location
       resourcegroup = module.global.groups.laws.name
       sku           = "PerGB2018"
-      retention     = 30
+      retention     = 90
       solutions     = ["ContainerInsights", "VMInsights", "AzureActivity"]
     }
   }
