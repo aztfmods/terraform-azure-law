@@ -12,60 +12,49 @@ The below features are made available:
 
 The below examples shows the usage when consuming the module:
 
-## Usage: single log analytics workspace single solution
+## Usage: simple
 
 ```hcl
 module "law" {
   source = "../../"
 
-  naming = {
-    company = local.naming.company
-    env     = local.naming.env
-    region  = local.naming.region
-  }
+  company = module.global.company
+  env     = module.global.env
+  region  = module.global.region
 
   laws = {
     demo = {
-      location      = module.global.groups.laws.location
-      resourcegroup = module.global.groups.laws.name
+      location      = module.global.groups.demo.location
+      resourcegroup = module.global.groups.demo.name
       sku           = "PerGB2018"
-      retention     = 30
-      solutions     = ["ContainerInsights"]
+      retention     = 90
     }
   }
   depends_on = [module.global]
 }
 ```
 
-## Usage: multiple log analytics workspace multiple solutions
+## Usage: solutions
 
 ```hcl
 module "law" {
   source = "../../"
 
-  naming = {
-    company = local.naming.company
-    env     = local.naming.env
-    region  = local.naming.region
-  }
+  company = module.global.company
+  env     = module.global.env
+  region  = module.global.region
 
   laws = {
-    law1 = {
-      location      = module.global.groups.laws.location
-      resourcegroup = module.global.groups.laws.name
+    demo = {
+      location      = module.global.groups.demo.location
+      resourcegroup = module.global.groups.demo.name
       sku           = "PerGB2018"
-      retention     = 30
+      retention     = 90
       solutions     = ["ContainerInsights", "VMInsights", "AzureActivity"]
-
-    law2 = {
-      location      = module.global.groups.laws.location
-      resourcegroup = module.global.groups.laws.name
-      sku           = "PerGB2018"
-      retention     = 30
-      solutions     = ["ContainerInsights"]
     }
-    depends_on = [module.global]
   }
+  depends_on = [module.global]
+}
 ```
 
 ## Resources
@@ -81,7 +70,6 @@ module "law" {
 
 | Name | Type |
 | :-- | :-- |
-| [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/virtual_network) | datasource |
 | [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/1.39.0/docs/data-sources/resource_group) | datasource |
 
 ## Inputs
@@ -89,7 +77,9 @@ module "law" {
 | Name | Description | Type | Required |
 | :-- | :-- | :-- | :-- |
 | `laws` | describes log analytics related configuration | object | yes |
-| `naming` | contains naming convention | string | yes |
+| `company` | contains the company name used, for naming convention	| string | yes |
+| `region` | contains the shortname of the region, used for naming convention	| string | yes |
+| `env` | contains shortname of the environment used for naming convention	| string | yes |
 
 ## Outputs
 
