@@ -33,10 +33,11 @@ resource "azurerm_log_analytics_workspace" "law" {
   sku                 = each.value.sku
 
   daily_quota_gb                     = try(each.value.daily_quota_gb, null)
-  internet_ingestion_enabled         = try(each.value.internet_ingestion_enabled, null)
-  internet_query_enabled             = try(each.value.internet_query_enabled, null)
+  internet_ingestion_enabled         = try(each.value.internet_ingestion_enabled, true)
+  internet_query_enabled             = try(each.value.internet_query_enabled, true)
   retention_in_days                  = try(each.value.retention, 30)
   reservation_capacity_in_gb_per_day = try(each.value.reservation_capacity_in_gb_per_day, null)
+  allow_resource_only_permissions    = try(each.value.allow_resource_only_permissions, true)
 
 }
 

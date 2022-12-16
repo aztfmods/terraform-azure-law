@@ -1,4 +1,7 @@
 ![example workflow](https://github.com/aztfmods/module-azurerm-law/actions/workflows/validate.yml/badge.svg)
+![example workflow](https://img.shields.io/github/v/release/aztfmods/module-azurerm-law)
+![GitHub issues](https://img.shields.io/github/issues-raw/aztfmods/module-azurerm-law)
+![GitHub issues](https://img.shields.io/github/issues-closed-raw/aztfmods/module-azurerm-law)
 
 # Log Analytic Workspaces
 
