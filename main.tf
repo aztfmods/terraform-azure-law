@@ -27,7 +27,7 @@ resource "random_string" "random" {
 resource "azurerm_log_analytics_workspace" "law" {
   for_each = var.laws
 
-  name                = "log-${var.naming.company}-${each.key}-${var.naming.env}-${var.naming.region}-${random_string.random.result}"
+  name                = "log-${var.company}-${each.key}-${var.env}-${var.region}-${random_string.random.result}"
   resource_group_name = data.azurerm_resource_group.rg[each.key].name
   location            = data.azurerm_resource_group.rg[each.key].location
   sku                 = each.value.sku

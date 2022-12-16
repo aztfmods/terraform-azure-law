@@ -1,5 +1,4 @@
 variable "laws" {}
-variable "naming" {}
-variable "env" {
-  default = "dev"
-}
+variable "company" {}
+variable "region" {}
+variable "env" {}
