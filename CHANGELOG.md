@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.0](https://github.com/aztfmods/module-azurerm-law/compare/v1.4.0...v1.5.0) (2022-12-16)
+
+
+### Features
+
+* add allow_resource_only_permissions support ([#19](https://github.com/aztfmods/module-azurerm-law/issues/19)) ([4ea4d59](https://github.com/aztfmods/module-azurerm-law/commit/4ea4d595dd65c3f42f7d50a2ba1d0ad79c0a9793))
+* small refactor naming convention ([#17](https://github.com/aztfmods/module-azurerm-law/issues/17)) ([92b4b0b](https://github.com/aztfmods/module-azurerm-law/commit/92b4b0bbbcbccc6b9bf07a13bdf53070ee925275))
+
 ## [1.4.0](https://github.com/aztfmods/module-azurerm-law/compare/v1.3.0...v1.4.0) (2022-10-15)
 
 
