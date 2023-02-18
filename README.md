@@ -1,6 +1,6 @@
 # Log Analytic Workspaces
 
-This Terraform module simplifies the creation of log analytics resources on the Azure cloud platform, allowing users to collect and analyze data from a variety of sources. With this module, users can easily provision a centralized, scalable, and secure log analytics solution with minimal effort.
+This terraform module simplifies the creation of log analytics resources on the azure cloud platform, allowing users to collect and analyze data from a variety of sources. With this module, users can easily provision a centralized, scalable, and secure log analytics solution with minimal effort.
 
 The below features are made available:
 
