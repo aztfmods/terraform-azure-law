@@ -1,15 +1,12 @@
-![example workflow](https://github.com/aztfmods/module-azurerm-law/actions/workflows/validate.yml/badge.svg)
-![example workflow](https://img.shields.io/github/v/release/aztfmods/module-azurerm-law)
-
 # Log Analytic Workspaces
 
-Terraform module which creates log analytics resources on Azure.
+This Terraform module simplifies the creation of log analytics resources on the Azure cloud platform, allowing users to collect and analyze data from a variety of sources. With this module, users can easily provision a centralized, scalable, and secure log analytics solution with minimal effort.
 
 The below features are made available:
 
 - multiple workspaces
-- [solution](#usage-multiple-log-analytics-workspace-multiple-solutions) support on each workspace
-- [terratest](https://terratest.gruntwork.io) is used to validate different integrations
+- solution support on each workspace
+- terratest is used to validate different integrations
 
 The below examples shows the usage when consuming the module:
 
