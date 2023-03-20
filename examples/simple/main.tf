@@ -10,7 +10,7 @@ module "global" {
   region  = "weu"
 
   rgs = {
-    demo = { location = "westeurope" }
+    law = { location = "westeurope" }
   }
 }
 
@@ -21,14 +21,12 @@ module "law" {
   env     = module.global.env
   region  = module.global.region
 
-  laws = {
-    demo = {
-      location      = module.global.groups.demo.location
-      resourcegroup = module.global.groups.demo.name
-      sku           = "PerGB2018"
-      retention     = 90
-      solutions     = ["ContainerInsights", "VMInsights", "AzureActivity"]
-    }
+  law = {
+    location      = module.global.groups.law.location
+    resourcegroup = module.global.groups.law.name
+    sku           = "PerGB2018"
+    retention     = 90
+    solutions     = ["ContainerInsights", "VMInsights", "AzureActivity"]
   }
   depends_on = [module.global]
 }

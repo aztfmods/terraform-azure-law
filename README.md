@@ -4,8 +4,7 @@ This terraform module simplifies the creation of log analytics resources on the 
 
 The below features are made available:
 
-- multiple workspaces
-- solution support on each workspace
+- multiple solutions
 - terratest is used to validate different integrations
 
 The below examples shows the usage when consuming the module:
@@ -20,13 +19,11 @@ module "law" {
   env     = module.global.env
   region  = module.global.region
 
-  laws = {
-    demo = {
-      location      = module.global.groups.demo.location
-      resourcegroup = module.global.groups.demo.name
-      sku           = "PerGB2018"
-      retention     = 90
-    }
+  law = {
+    location      = module.global.groups.demo.location
+    resourcegroup = module.global.groups.demo.name
+    sku           = "PerGB2018"
+    retention     = 90
   }
   depends_on = [module.global]
 }
@@ -42,14 +39,12 @@ module "law" {
   env     = module.global.env
   region  = module.global.region
 
-  laws = {
-    demo = {
-      location      = module.global.groups.demo.location
-      resourcegroup = module.global.groups.demo.name
-      sku           = "PerGB2018"
-      retention     = 90
-      solutions     = ["ContainerInsights", "VMInsights", "AzureActivity"]
-    }
+  law = {
+    location      = module.global.groups.demo.location
+    resourcegroup = module.global.groups.demo.name
+    sku           = "PerGB2018"
+    retention     = 90
+    solutions     = ["ContainerInsights", "VMInsights", "AzureActivity"]
   }
   depends_on = [module.global]
 }
@@ -59,22 +54,15 @@ module "law" {
 
 | Name | Type |
 | :-- | :-- |
-| [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 | [azurerm_log_analytics_workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
 | [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) | resource |
-
-## Data Sources
-
-| Name | Type |
-| :-- | :-- |
-| [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/1.39.0/docs/data-sources/resource_group) | datasource |
 
 ## Inputs
 
 | Name | Description | Type | Required |
 | :-- | :-- | :-- | :-- |
-| `laws` | describes log analytics related configuration | object | yes |
+| `law` | describes log analytics related configuration | object | yes |
 | `company` | contains the company name used, for naming convention	| string | yes |
 | `region` | contains the shortname of the region, used for naming convention	| string | yes |
 | `env` | contains shortname of the environment used for naming convention	| string | yes |
@@ -83,7 +71,7 @@ module "law" {
 
 | Name | Description |
 | :-- | :-- |
-| `laws` | contains all log analytics workspaces |
+| `law` | contains all log analytics workspaces |
 
 ## Authors
 

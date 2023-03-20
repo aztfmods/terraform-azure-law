@@ -1,4 +1,4 @@
-variable "laws" {}
+variable "law" {}
 variable "company" {}
 variable "region" {}
 variable "env" {}
