@@ -1,7 +1,4 @@
-#----------------------------------------------------------------------------------------
 # generate random id
-#----------------------------------------------------------------------------------------
-
 resource "random_string" "random" {
   length    = 3
   min_lower = 3
@@ -10,10 +7,7 @@ resource "random_string" "random" {
   upper     = false
 }
 
-#----------------------------------------------------------------------------------------
 # workspaces
-#----------------------------------------------------------------------------------------
-
 resource "azurerm_log_analytics_workspace" "law" {
   name                = "log-${var.company}-${var.env}-${var.region}-${random_string.random.result}"
   resource_group_name = var.law.resourcegroup
@@ -28,10 +22,7 @@ resource "azurerm_log_analytics_workspace" "law" {
   allow_resource_only_permissions    = try(var.law.allow_resource_only_permissions, true)
 }
 
-#----------------------------------------------------------------------------------------
 # solutions
-#----------------------------------------------------------------------------------------
-
 resource "azurerm_log_analytics_solution" "solutions" {
   for_each = {
     for solution in local.solutions : solution.solution_key => solution
