@@ -2,7 +2,7 @@ module test
 
 go 1.18
 
-require github.com/gruntwork-io/terratest v0.41.16
+require github.com/gruntwork-io/terratest v0.41.17
 
 require (
 	cloud.google.com/go v0.105.0 // indirect
