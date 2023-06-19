@@ -9,7 +9,7 @@ resource "random_string" "random" {
 
 # workspaces
 resource "azurerm_log_analytics_workspace" "law" {
-  name                = "log-${var.company}-${var.env}-${var.region}-${random_string.random.result}"
+  name                = "log-${var.workload}-${var.environment}-${var.location_short}-${random_string.random.result}"
   resource_group_name = var.law.resourcegroup
   location            = var.law.location
   sku                 = var.law.sku
