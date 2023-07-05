@@ -15,7 +15,7 @@ module "rg" {
 }
 
 module "law" {
-  source = "../../"
+  source = "github.com/aztfmods/terraform-azure-law?ref=v1.6.0"
 
   workload    = var.workload
   environment = var.environment
