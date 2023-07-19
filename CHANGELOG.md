@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.7.0](https://github.com/aztfmods/terraform-azure-law/compare/v1.6.0...v1.7.0) (2023-07-19)
+
+
+### Features
+
+* **deps:** bump github.com/gruntwork-io/terratest in /tests ([#38](https://github.com/aztfmods/terraform-azure-law/issues/38)) ([a9f0bbb](https://github.com/aztfmods/terraform-azure-law/commit/a9f0bbb1183637736d5b4ad8168248d2d628b455))
+* **deps:** bump github.com/gruntwork-io/terratest in /tests ([#43](https://github.com/aztfmods/terraform-azure-law/issues/43)) ([c2e5d2f](https://github.com/aztfmods/terraform-azure-law/commit/c2e5d2f5c43508bf326aab52b17cd191247fe86f))
+* **deps:** bump google.golang.org/grpc from 1.51.0 to 1.53.0 in /tests ([#41](https://github.com/aztfmods/terraform-azure-law/issues/41)) ([da54168](https://github.com/aztfmods/terraform-azure-law/commit/da5416895908d3387479b6b9ad339d235622910b))
+* solve linting issues and update documentation ([#39](https://github.com/aztfmods/terraform-azure-law/issues/39)) ([3146477](https://github.com/aztfmods/terraform-azure-law/commit/314647764c0e22ace3a27ed0f8eb1bcb0aa13a85))
+
 ## [1.6.0](https://github.com/aztfmods/module-azurerm-law/compare/v1.5.0...v1.6.0) (2023-03-20)
 
 
