@@ -2,7 +2,7 @@ module github.com/aztfmods/terraform-azure-law
 
 go 1.20
 
-require github.com/gruntwork-io/terratest v0.43.8
+require github.com/gruntwork-io/terratest v0.44.0
 
 require (
 	cloud.google.com/go v0.107.0 // indirect
